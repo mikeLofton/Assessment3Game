@@ -2,6 +2,7 @@
 #include "Component.h"
 #include <raylib.h>
 #include <Vector2.h>
+class Bullet;
 
 class InputComponent :
 	public Component
@@ -10,6 +11,7 @@ public:
 	InputComponent(const char* name = "InputComponent") : Component::Component(name) {}
 
 	MathLibrary::Vector2 getMoveAxis();
+	
 
 private:
 	RAYLIB_H::KeyboardKey m_action1Key = RAYLIB_H::KeyboardKey::KEY_SPACE;
