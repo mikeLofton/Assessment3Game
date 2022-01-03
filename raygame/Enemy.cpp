@@ -16,7 +16,7 @@ void Enemy::update(float deltaTime)
 	Actor::update(deltaTime);
 
 	MathLibrary::Vector2 direction;
-	direction = this->getTransform()->getWorldPosition();
+	direction = m_target->getTransform()->getWorldPosition() - getTransform()->getWorldPosition();
 	direction.normalize();
 	m_moveComponent->setVelocity(direction * 50);
 }

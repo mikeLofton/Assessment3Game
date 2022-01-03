@@ -8,7 +8,7 @@ class Enemy :
 	public Actor
 {
 public:
-	Enemy(float x, float y, const char* name) : Actor(x, y, name) {}
+	Enemy(float x, float y, const char* name, Actor* target) : Actor(x, y, name) { m_target = target; }
 	~Enemy();
 
 	void start() override;
@@ -18,5 +18,6 @@ public:
 private:
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
+	Actor* m_target;
 };
 
