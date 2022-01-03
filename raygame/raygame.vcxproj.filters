@@ -100,13 +100,13 @@
     <ClInclude Include="Sprite.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="StartScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="InputComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
