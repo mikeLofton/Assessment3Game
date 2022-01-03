@@ -11,6 +11,7 @@ public:
 	InputComponent(const char* name = "InputComponent") : Component::Component(name) {}
 
 	MathLibrary::Vector2 getMoveAxis();
+	bool checkActionKey();
 	
 
 private:

@@ -18,5 +18,7 @@ private:
 	InputComponent* m_inputComponent;
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
+	float m_sinceLastShot;
+	float m_cooldown = 1;
 };
 
