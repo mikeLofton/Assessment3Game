@@ -10,10 +10,13 @@
 void Player::start()
 {
 	Actor::start();
-
+	//Add the input component to player
 	m_inputComponent = dynamic_cast<InputComponent*>(addComponent(new InputComponent()));
+	//Add the movement component to player
 	m_moveComponent = dynamic_cast<MovementComponent*>(addComponent(new MovementComponent()));
+	//The the max speed the player can move
 	m_moveComponent->setMaxSpeed(10);
+	//Add the sprite component for the player ship
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
 	
 	//Set spawn point
@@ -23,27 +26,22 @@ void Player::start()
 
 void Player::update(float deltaTime)
 {
-	//m_sinceLastShot = m_sinceLastShot + deltaTime;
-
+	//If player has pressed the spacebar...
 	if (m_inputComponent->checkActionKey())
 	{
+		//...bullet spawns
 		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 150, "bullet");
 		bullet->getTransform()->setScale({ 50, 50 });
 
+		//bullet is add to the actor array and to the current scene
 		Engine::getCurrentScene()->addActor(bullet);
-		
-		
-
-		
 	}
 
+	//Receive the players input to what direction they want to move
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
+	//The velocity at which the player moves
 	m_moveComponent->setVelocity(moveDirection * 200);
-	/*if (m_sinceLastShot > m_cooldown)
-	{
-		
-	}*/
 	
 	Actor::update(deltaTime);
 }
