@@ -7,17 +7,22 @@
 
 void Enemy::start()
 {
+	//Base Actor start
 	Actor::start();
+	//Adds the move component
 	m_moveComponent = dynamic_cast<MovementComponent*>(addComponent(new MovementComponent()));
+	//The Enemy's max speed
 	m_moveComponent->setMaxSpeed(10);
+	//Adds the sprite component
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/enemy.png")));
-	
+	//The enemy circle collider
 	CircleCollider* enemyCollider = new CircleCollider(20, this);
 	this->setCollider(enemyCollider);
 }
 
 void Enemy::update(float deltaTime)
 {
+	//Base Actor Update
 	Actor::update(deltaTime);
 
 	MathLibrary::Vector2 direction;
