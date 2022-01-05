@@ -11,13 +11,15 @@ void StartScene::start()
 	Player* player = new Player(50, 500, "Player");
 	player->getTransform()->setScale({ 50, 50 });
 
-	Enemy* enemy = new Enemy(55, 50, "Enemy", player);
-	enemy->getTransform()->setScale({ 50, 50 });
+	/*Actor* test = new Actor(400, 500, "Test");*/
 
-	/*EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", enemy);*/
+	/*Enemy* enemy = new Enemy(55, 50, "Enemy", player);
+	enemy->getTransform()->setScale({ 50, 50 });*/
+
+	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", player);
 
 
 	addActor(player);
-	addActor(enemy);
-	/*addActor(spawner1);*/
+	/*addActor(enemy);*/
+	addActor(spawner1);
 }
