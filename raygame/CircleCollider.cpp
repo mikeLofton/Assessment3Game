@@ -67,5 +67,5 @@ void CircleCollider::draw()
 {
     Collider::draw();
 
-    RAYLIB_H::DrawCircleLines(getOwner()->getTransform()->getLocalPosition().x, getOwner()->getTransform()->getLocalPosition().y, 20, RED);
+    RAYLIB_H::DrawCircleLines(getOwner()->getTransform()->getLocalPosition().x, getOwner()->getTransform()->getLocalPosition().y, 2, RED);
 }

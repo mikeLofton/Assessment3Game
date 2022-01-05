@@ -7,6 +7,8 @@
 #include "Transform2D.h"
 #include "Scene.h"
 #include "CircleCollider.h"
+#include "PowerUp.h"
+#include <iostream>
 
 void Player::start()
 {
@@ -68,6 +70,20 @@ void Player::onCollision(Actor* other)
 	if (other->getName() == "Enemy")
 	{
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
+	}
+
+	if (other->getName() == "Power Up")
+	{
+		//Removes the power up from the start scene
+		Engine::getCurrentScene()->removeActor(other);
+		//Scales the player down when collides with power up
+		this->getTransform()->scale({ 0.2, 0.2 });
+		CircleCollider* newCollider = new CircleCollider(1, this);
+		this->setCollider(newCollider);
+		//PowerUp* powerUpChild = new PowerUp(1, 1, "Power Up child");
+		//powerUpChild->getTransform()->setScale({ 50, 50 });
+		//this->getTransform()->addChild(powerUpChild);
+		
 	}
 }
 

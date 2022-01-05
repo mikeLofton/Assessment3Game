@@ -25,7 +25,7 @@ void PowerUp::onCollision(Actor* other)
 
 	if (other->getName() == "Player")
 	{
-		Engine::getCurrentScene()->removeActor(this);
+		/*Engine::getCurrentScene()->removeActor(this);*/
 		delete m_spriteComponent;
 	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Actor.h"
-class MovementComponet;
+//class MovementComponet;
 class Sprite;
 
 class PowerUp :
@@ -15,7 +15,7 @@ public:
 	void onCollision(Actor* other);
 
 private:
-	MovementComponet* m_movementComponent;
+	//MovementComponet* m_movementComponent;
 	Sprite* m_spriteComponent;
 };
 
