@@ -10,12 +10,15 @@
 
 void StartScene::start()
 {
+	//Player
 	Player* player = new Player(50, 500, "Player");
 	player->getTransform()->setScale({ 50, 50 });
+	//Player collider
 	CircleCollider* playerCircleCollider = new CircleCollider(player);
 	player->setCollider(playerCircleCollider);
 	playerCircleCollider->setCollisionRadius(20);
 
+	//Power up
 	PowerUp* powerUp = new PowerUp(500, 500, "Power Up");
 	powerUp->getTransform()->setScale({ 50, 50 });
 

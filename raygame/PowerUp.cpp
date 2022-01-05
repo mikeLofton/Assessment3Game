@@ -9,7 +9,10 @@
 void PowerUp::start()
 {
 	Actor::start();
+	//Power up sprite
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/bullet.png")));
+
+	//The power ups sprite
 	CircleCollider* powerUpCircleCollider = new CircleCollider(10, this);
 	this->setCollider(powerUpCircleCollider);
 }
@@ -22,10 +25,7 @@ void PowerUp::draw()
 
 void PowerUp::onCollision(Actor* other)
 {
-
+	//If player collides with power up sprite is deleted
 	if (other->getName() == "Player")
-	{
-		/*Engine::getCurrentScene()->removeActor(this);*/
 		delete m_spriteComponent;
-	}
 }
