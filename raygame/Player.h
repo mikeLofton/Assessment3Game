@@ -3,7 +3,6 @@
 class InputComponent;
 class MovementComponent;
 class Sprite;
-class Scene;
 
 class Player :
 	public Actor
@@ -28,6 +27,8 @@ public:
 	/// </summary>
 	/// <param name="deltaTime">Elapsed time</param>
 	void update(float deltaTime) override;
+	void draw() override;
+	void onCollision(Actor* other) override;
 
 private:
 	InputComponent* m_inputComponent;

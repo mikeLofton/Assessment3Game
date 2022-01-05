@@ -3,6 +3,7 @@
 #include "MovementComponent.h"
 #include "Sprite.h"
 #include "Engine.h"
+#include "CircleCollider.h"
 
 
 void Bullet::start()
@@ -14,6 +15,9 @@ void Bullet::start()
 	m_movementComponent = dynamic_cast<MovementComponent*>(addComponent(new MovementComponent()));
 	//Set the velocity of the bullet
 	m_movementComponent->setVelocity(m_bulletDirection * m_speed);
+
+	CircleCollider* bulletCollider = new CircleCollider(10, this);
+	this->setCollider(bulletCollider);
 }
 
 void Bullet::update(float deltaTime)
@@ -38,7 +42,18 @@ void Bullet::update(float deltaTime)
 	}
 }
 
+void Bullet::draw()
+{
+	Actor::draw();
+	getCollider()->draw();
+}
+
 void Bullet::onCollision(Actor* other)
 {
+	if (other->getName() == "Enemy")
+	{
+		Engine::getCurrentScene()->removeActor(this);
+		delete m_sprite;
+	}
 
 }
