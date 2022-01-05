@@ -26,24 +26,23 @@ void Player::start()
 
 void Player::update(float deltaTime)
 {
+	//Calls the Actor Update
+	Actor::update(deltaTime);
+
 	//If player has pressed the spacebar...
 	if (m_inputComponent->checkActionKey())
 	{
 		//...bullet spawns
-		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 250, "bullet");
+		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 550, "bullet");
 		bullet->getTransform()->setScale({ 50, 50 });
-	//Calls the Actor Update
-	Actor::update(deltaTime);
-
+	
 		//bullet is add to the actor array and to the current scene
 		Engine::getCurrentScene()->addActor(bullet);
 	}
 
-	//Receive the players input to what direction they want to move
 	//Creates a move direction Vector2 that takes in the move axis
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
-	//The velocity at which the player moves
 	//Normalizes the move direction
 	moveDirection.normalize();
 
