@@ -6,6 +6,7 @@
 #include "Bullet.h"
 #include "Transform2D.h"
 #include "Scene.h"
+#include "CircleCollider.h"
 
 void Player::start()
 {
@@ -19,6 +20,7 @@ void Player::start()
 	//Add the sprite component for the player ship
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
 	
+
 	//Set spawn point
 	//Set move speed
 	//Set position clamps
@@ -54,3 +56,21 @@ void Player::update(float deltaTime)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 }
+
+void Player::draw()
+{
+	Actor::draw();
+	getCollider()->draw();
+}
+
+void Player::onCollision(Actor* other)
+{
+	if (other->getName() == "Enemy")
+	{
+		Engine::getCurrentScene()->removeActor(this);
+		delete m_spriteComponent;
+
+	}
+}
+
+

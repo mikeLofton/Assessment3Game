@@ -15,6 +15,7 @@ public:
 	float speed(float speed) { m_speed = speed; }
 	void start() override;
 	void update(float deltaTime) override;
+	void draw() override;
 	void onCollision(Actor* other) override;
 
 private:
