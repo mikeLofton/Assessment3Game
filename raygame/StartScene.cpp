@@ -16,7 +16,7 @@ void StartScene::start()
 	/*Enemy* enemy = new Enemy(55, 50, "Enemy", player);
 	enemy->getTransform()->setScale({ 50, 50 });*/
 
-	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1");
+	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", player);
 
 
 	addActor(player);
