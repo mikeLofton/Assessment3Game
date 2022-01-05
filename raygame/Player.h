@@ -27,7 +27,18 @@ public:
 	/// </summary>
 	/// <param name="deltaTime">Elapsed time</param>
 	void update(float deltaTime) override;
+
+	/// <summary>
+	/// Draws the collider
+	/// </summary>
 	void draw() override;
+
+	/// <summary>
+	/// When player collides with the Enemy player respawns
+	/// When player collides with the power up the player's scale and radius decrease
+	/// to evade enemies easier.
+	/// </summary>
+	/// <param name="other"></param>
 	void onCollision(Actor* other) override;
 
 private:

@@ -50,9 +50,12 @@ void Bullet::draw()
 
 void Bullet::onCollision(Actor* other)
 {
+	//If bullet collides with enemy...
 	if (other->getName() == "Enemy")
 	{
+		//...The bullet is removed form the scene
 		Engine::getCurrentScene()->removeActor(this);
+		//the bullet sprite is deleted
 		delete m_sprite;
 	}
 

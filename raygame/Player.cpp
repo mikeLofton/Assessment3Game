@@ -67,19 +67,25 @@ void Player::draw()
 
 void Player::onCollision(Actor* other)
 {
+	//If player collides with enemy...
 	if (other->getName() == "Enemy")
 	{
+		//...player respawns.
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
 	}
 
+	//If player collides with the power up...
 	if (other->getName() == "Power Up")
 	{
-		//Removes the power up from the start scene
+		//...removes the power up from the start scene
 		Engine::getCurrentScene()->removeActor(other);
-		//Scales the player down when collides with power up
+
+		//scales the player down when collides with power up
 		this->getTransform()->scale({ 0.2, 0.2 });
+		//create new collider with a smaller radius
 		CircleCollider* newCollider = new CircleCollider(1, this);
 		this->setCollider(newCollider);
+
 		//PowerUp* powerUpChild = new PowerUp(1, 1, "Power Up child");
 		//powerUpChild->getTransform()->setScale({ 50, 50 });
 		//this->getTransform()->addChild(powerUpChild);
