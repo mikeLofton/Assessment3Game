@@ -67,9 +67,7 @@ void Player::onCollision(Actor* other)
 {
 	if (other->getName() == "Enemy")
 	{
-		Engine::getCurrentScene()->removeActor(this);
-		delete m_spriteComponent;
-
+		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
 	}
 }
 
