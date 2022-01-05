@@ -3,7 +3,6 @@
 class InputComponent;
 class MovementComponent;
 class Sprite;
-class Scene;
 
 class Player :
 	public Actor

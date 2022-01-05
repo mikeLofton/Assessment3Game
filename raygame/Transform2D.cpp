@@ -283,4 +283,8 @@ void Transform2D::updateTransforms()
     else
         //...set the global to be the local
         *m_globalMatrix = *m_localMatrix;
+
+    //Tell all children to update transforms
+    for (int i = 0; i < m_childCount; i++)
+        m_children[i]->m_shouldUpdateTransforms = true;
 }
