@@ -6,6 +6,9 @@
 #include "Bullet.h"
 #include "Transform2D.h"
 #include "Scene.h"
+#include "CircleCollider.h"
+#include "PowerUp.h"
+#include <iostream>
 
 void Player::start()
 {
@@ -19,6 +22,7 @@ void Player::start()
 	//Add the sprite component for the player ship
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
 	
+
 	//Set spawn point
 	//Set move speed
 	//Set position clamps
@@ -54,3 +58,33 @@ void Player::update(float deltaTime)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 }
+
+void Player::draw()
+{
+	Actor::draw();
+	getCollider()->draw();
+}
+
+void Player::onCollision(Actor* other)
+{
+	if (other->getName() == "Enemy")
+	{
+		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
+	}
+
+	if (other->getName() == "Power Up")
+	{
+		//Removes the power up from the start scene
+		Engine::getCurrentScene()->removeActor(other);
+		//Scales the player down when collides with power up
+		this->getTransform()->scale({ 0.2, 0.2 });
+		CircleCollider* newCollider = new CircleCollider(1, this);
+		this->setCollider(newCollider);
+		//PowerUp* powerUpChild = new PowerUp(1, 1, "Power Up child");
+		//powerUpChild->getTransform()->setScale({ 50, 50 });
+		//this->getTransform()->addChild(powerUpChild);
+		
+	}
+}
+
+

@@ -13,7 +13,9 @@ public:
 
 	void start() override;
 	void update(float deltaTime) override;
-	/*void onCollision(Actor* other) override;*/
+	void draw() override;
+	void onCollision(Actor* other) override;
+	
 
 private:
 	MovementComponent* m_moveComponent;
