@@ -1,6 +1,5 @@
 #include "EnemySpawner.h"
 #include "Engine.h"
-#include "SpawnComponent.h"
 #include "Enemy.h"
 #include "Transform2D.h"
 #include "Player.h"

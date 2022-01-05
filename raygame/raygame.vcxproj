@@ -161,7 +161,6 @@
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SpawnComponent.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="Transform2D.cpp" />
@@ -181,7 +180,6 @@
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="SpawnComponent.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="Transform2D.h" />

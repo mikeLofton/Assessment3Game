@@ -68,9 +68,6 @@
     <ClCompile Include="EnemySpawner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpawnComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -126,9 +123,6 @@
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnComponent.h">
-      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

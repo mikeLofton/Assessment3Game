@@ -7,7 +7,6 @@ class EnemySpawner :
 {
 public:
 
-	/*EnemySpawner(float x, float y, const char* name, Actor* enemy) : Actor(x, y, name) { m_currentEnemy = enemy; }*/
 	EnemySpawner(float x, float y, const char* name, Player* player) : Actor(x, y, name) { m_currentPlayer = player; }
 	~EnemySpawner();
 
