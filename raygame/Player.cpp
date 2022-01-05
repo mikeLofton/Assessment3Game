@@ -83,7 +83,6 @@ void Player::onCollision(Actor* other)
 		//PowerUp* powerUpChild = new PowerUp(1, 1, "Power Up child");
 		//powerUpChild->getTransform()->setScale({ 50, 50 });
 		//this->getTransform()->addChild(powerUpChild);
-		
 	}
 }
 
