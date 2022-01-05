@@ -30,7 +30,7 @@ void Player::update(float deltaTime)
 	if (m_inputComponent->checkActionKey())
 	{
 		//...bullet spawns
-		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 150, "bullet");
+		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 250, "bullet");
 		bullet->getTransform()->setScale({ 50, 50 });
 
 		//bullet is add to the actor array and to the current scene
