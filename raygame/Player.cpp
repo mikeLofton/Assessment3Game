@@ -23,31 +23,27 @@ void Player::start()
 
 void Player::update(float deltaTime)
 {
-	m_sinceLastShot += deltaTime;
+	//m_sinceLastShot = m_sinceLastShot + deltaTime;
 
-	
+	if (m_inputComponent->checkActionKey())
+	{
+		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 150, "bullet");
+		bullet->getTransform()->setScale({ 50, 50 });
+
+		Engine::getCurrentScene()->addActor(bullet);
+		
+		
+
+		
+	}
 
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
 	m_moveComponent->setVelocity(moveDirection * 200);
-	if (m_sinceLastShot > m_cooldown)
+	/*if (m_sinceLastShot > m_cooldown)
 	{
-		if (m_inputComponent->checkActionKey())
-		{
-			Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 150, "bullet");
-			bullet->getTransform()->setScale({ 50, 50 });
-			
-			/*bullet->getTransform()->setLocalPosition(this->getTransform()->getLocalPosition);
-
-			bullet->getTransform()->setForward(this->getTransform()->getForward);*/
-
-			Engine::getCurrentScene()->addActor(bullet);
-			m_sinceLastShot = 0;
-
-			if (m_sinceLastShot > m_cooldown)
-				delete bullet;
-		}
-	}
+		
+	}*/
 	
 	Actor::update(deltaTime);
 }

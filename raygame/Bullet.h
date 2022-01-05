@@ -23,5 +23,7 @@ private:
 	MovementComponent* m_movementComponent;
 	Sprite* m_sprite;
 	Actor* m_owner;
+	float m_timeSinceLastShot = 1;
+	float m_coolDown = 3;
 };
 

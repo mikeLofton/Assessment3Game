@@ -2,6 +2,7 @@
 #include "Transform2D.h"
 #include "MovementComponent.h"
 #include "Sprite.h"
+#include "Engine.h"
 
 
 void Bullet::start()
@@ -17,7 +18,16 @@ void Bullet::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
+	m_timeSinceLastShot = m_timeSinceLastShot + deltaTime;
+
 	getTransform()->getLocalPosition() = getTransform()->getLocalPosition() + m_bulletDirection.getNormalized() * m_speed * deltaTime;
+
+	if (m_timeSinceLastShot > m_coolDown)
+	{
+		Engine::getCurrentScene()->removeActor(this);
+		delete m_sprite;
+		m_timeSinceLastShot = 0;
+	}
 }
 
 void Bullet::onCollision(Actor* other)
