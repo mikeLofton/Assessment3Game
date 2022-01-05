@@ -14,6 +14,7 @@ public:
     /// <param name="name">The name of this actor.</param>
     Actor(float x, float y, const char* name);
 
+
     /// <summary>
     /// </summary>
     /// <returns>If the actors start function has been called.</returns>
