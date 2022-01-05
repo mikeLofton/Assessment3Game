@@ -12,7 +12,7 @@ public:
 
 	void start() override;
 	void draw() override;
-	void onColision(Actor* other);
+	void onCollision(Actor* other);
 
 private:
 	MovementComponet* m_movementComponent;
