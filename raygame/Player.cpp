@@ -34,7 +34,7 @@ void Player::update(float deltaTime)
 	{
 		if (m_inputComponent->checkActionKey())
 		{
-			Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), "bullet");
+			Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 150, "bullet");
 			bullet->getTransform()->setScale({ 50, 50 });
 			
 			/*bullet->getTransform()->setLocalPosition(this->getTransform()->getLocalPosition);
@@ -43,7 +43,9 @@ void Player::update(float deltaTime)
 
 			Engine::getCurrentScene()->addActor(bullet);
 			m_sinceLastShot = 0;
-			
+
+			if (m_sinceLastShot > m_cooldown)
+				delete bullet;
 		}
 	}
 	

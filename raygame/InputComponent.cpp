@@ -17,7 +17,7 @@ MathLibrary::Vector2 InputComponent::getMoveAxis()
 
 bool InputComponent::checkActionKey()
 {
-	if (IsKeyDown(m_action1Key))
+	if (IsKeyPressed(m_action1Key))
 	{
 		std::cout << "Bullet Created" << std::endl;
 		return true;

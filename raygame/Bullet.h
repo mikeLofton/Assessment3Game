@@ -9,7 +9,7 @@ class Bullet :
 	public Actor
 {
 public:
-	Bullet(Actor* owner, float x, float y, MathLibrary::Vector2 bulletDirection, const char* name) : Actor::Actor(x, y, name) { m_owner = owner; m_bulletDirection = bulletDirection; }
+	Bullet(Actor* owner, float x, float y, MathLibrary::Vector2 bulletDirection, float speed, const char* name) : Actor::Actor(x, y, name) { m_owner = owner; m_bulletDirection = bulletDirection; m_speed = speed; }
 	~Bullet() {};
 
 	float speed(float speed) { m_speed = speed; }
