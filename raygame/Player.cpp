@@ -9,6 +9,7 @@
 #include "CircleCollider.h"
 #include "PowerUp.h"
 #include <iostream>
+#include "GameManager.h"
 
 void Player::start()
 {
@@ -57,6 +58,9 @@ void Player::update(float deltaTime)
 	if (m_moveComponent->getVelocity().getMagnitude() > 0)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
+
+	if (lifeCount <= 0)
+		Engine::CloseApplication();
 }
 
 void Player::draw()
@@ -70,6 +74,7 @@ void Player::onCollision(Actor* other)
 	if (other->getName() == "Enemy")
 	{
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
+		lifeCount--;
 	}
 
 	if (other->getName() == "Power Up")

@@ -34,5 +34,6 @@ private:
 	InputComponent* m_inputComponent;
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
+	int lifeCount = 3;
 };
 
