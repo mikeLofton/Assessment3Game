@@ -37,9 +37,8 @@ void Enemy::draw()
 
 void Enemy::onCollision(Actor* other)
 {
-	if (other->getName() == "bullet")
+	if (other->getName() == "Bullet" || other->getName() == "Bullet dChild")
 	{
-		Engine::getCurrentScene()->removeActor(this);
-		delete m_spriteComponent;
+		Engine::destroy(this);
 	}
 }

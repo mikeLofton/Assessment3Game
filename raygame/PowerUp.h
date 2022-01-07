@@ -21,6 +21,7 @@ public:
 	/// </summary>
 	void start() override;
 
+
 	/// <summary>
 	/// Calls the base draw function and draws the collider attached to the power up 
 	/// </summary>

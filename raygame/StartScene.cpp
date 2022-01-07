@@ -22,6 +22,9 @@ void StartScene::start()
 	PowerUp* powerUp = new PowerUp(500, 500, "Power Up");
 	powerUp->getTransform()->setScale({ 50, 50 });
 
+	PowerUp* powerUp2 = new PowerUp(500, 700, "Power Up 2");
+	powerUp2->getTransform()->setScale({ 50, 50 });
+
 	/*Actor* test = new Actor(400, 500, "Test");*/
 
 	/*Enemy* enemy = new Enemy(55, 50, "Enemy", player);
@@ -29,6 +32,7 @@ void StartScene::start()
 
 	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", player);
 
+	addActor(powerUp2);
 	addActor(powerUp);
 	addActor(player);
 	/*addActor(enemy);*/

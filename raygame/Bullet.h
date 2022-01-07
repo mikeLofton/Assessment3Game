@@ -53,6 +53,7 @@ public:
 	/// <param name="other"></param>
 	void onCollision(Actor* other) override;
 
+
 private:
 	float m_speed;
 	MathLibrary::Vector2 m_bulletDirection;
@@ -63,6 +64,6 @@ private:
 	//The amount of time that has passed since player has shot a bullet
 	float m_timeSinceLastShot = 1;
 	//The amount of time that it takes for a bullet to despawn
-	float m_coolDown = 3;
+	float m_coolDown = 20;
 };
 

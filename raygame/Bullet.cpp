@@ -12,7 +12,7 @@ void Bullet::start()
 	//Add the sprite component for the bullet
 	m_sprite = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/bullet.png")));
 	//Add move component for how the bullet will move
-	m_movementComponent = dynamic_cast<MovementComponent*>(addComponent(new MovementComponent()));
+	m_movementComponent = dynamic_cast<MovementComponent*>(addComponent(new MovementComponent("Movement Component")));
 	//Set the velocity of the bullet
 	m_movementComponent->setVelocity(m_bulletDirection * m_speed);
 
@@ -34,9 +34,7 @@ void Bullet::update(float deltaTime)
 	if (m_timeSinceLastShot > m_coolDown)
 	{
 		//...remove the bullet from the actor array and the current scene
-		Engine::getCurrentScene()->removeActor(this);
-		//delete the sprite
-		delete m_sprite;
+		Engine::destroy(this);
 		//set the time since the last shot back to 0
 		m_timeSinceLastShot = 0;
 	}
@@ -54,9 +52,12 @@ void Bullet::onCollision(Actor* other)
 	if (other->getName() == "Enemy")
 	{
 		//...The bullet is removed form the scene
-		Engine::getCurrentScene()->removeActor(this);
-		//the bullet sprite is deleted
-		delete m_sprite;
+		Engine::destroy(this);
 	}
 
+	if (other->getName() == "Enemy")
+		Engine::destroy(other);
+
+
 }
+

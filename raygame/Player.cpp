@@ -37,13 +37,13 @@ void Player::update(float deltaTime)
 	if (m_inputComponent->checkActionKey())
 	{
 		//...bullet spawns
-		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 550, "bullet");
+		Bullet* bullet = new Bullet(this, getTransform()->getLocalPosition().x, getTransform()->getLocalPosition().y, getTransform()->getForward(), 550, "Bullet");
 		bullet->getTransform()->setScale({ 50, 50 });
 	
 		//bullet is add to the actor array and to the current scene
 		Engine::getCurrentScene()->addActor(bullet);
 	}
-
+	
 	//Creates a move direction Vector2 that takes in the move axis
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
@@ -78,7 +78,7 @@ void Player::onCollision(Actor* other)
 	if (other->getName() == "Power Up")
 	{
 		//...removes the power up from the start scene
-		Engine::getCurrentScene()->removeActor(other);
+		Engine::destroy(other);
 
 		//scales the player down when collides with power up
 		this->getTransform()->scale({ 0.2, 0.2 });
@@ -89,6 +89,22 @@ void Player::onCollision(Actor* other)
 		//PowerUp* powerUpChild = new PowerUp(1, 1, "Power Up child");
 		//powerUpChild->getTransform()->setScale({ 50, 50 });
 		//this->getTransform()->addChild(powerUpChild);
+	}
+
+	if (other->getName() == "Power Up 2")
+	{
+		Engine::destroy(other);
+
+		Bullet* bullet = new Bullet(this, 1, 1, { 0,0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet);
+		this->getTransform()->addChild(bullet->getTransform());
+		bullet->getTransform()->setScale({ 50, 50 });
+		
+		
+
+		CircleCollider* bulletChildCollder = new CircleCollider(bullet);
+		bullet->setCollider(bulletChildCollder);
+		
 	}
 }
 

@@ -5,6 +5,7 @@
 #include "Engine.h"
 #include "Transform2D.h"
 #include <iostream>
+#include "Player.h"
 
 void PowerUp::start()
 {
@@ -17,6 +18,8 @@ void PowerUp::start()
 	this->setCollider(powerUpCircleCollider);
 }
 
+
+
 void PowerUp::draw()
 {
 	Actor::draw();
@@ -25,7 +28,5 @@ void PowerUp::draw()
 
 void PowerUp::onCollision(Actor* other)
 {
-	//If player collides with power up sprite is deleted
-	if (other->getName() == "Player")
-		delete m_spriteComponent;
+	
 }
