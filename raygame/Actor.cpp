@@ -11,6 +11,10 @@ Actor::Actor()
 
 Actor::~Actor()
 {
+    ///Deletes all components
+    for (int i = 0; i < m_componentCount; i++)
+        delete m_components[i];
+
     delete m_transform;
 }
 
@@ -174,6 +178,9 @@ void Actor::update(float deltaTime)
 
         m_components[i]->update(deltaTime);
     }
+
+    if (getName() != "Player")
+        getTransform()->rotate(deltaTime);
 }
 
 void Actor::draw()

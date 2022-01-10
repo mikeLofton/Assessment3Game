@@ -33,6 +33,8 @@ void Player::update(float deltaTime)
 	//Calls the Actor Update
 	Actor::update(deltaTime);
 
+	m_timeSincePowerUp = m_timeSincePowerUp + deltaTime;
+
 	//If player has pressed the spacebar...
 	if (m_inputComponent->checkActionKey())
 	{
@@ -57,6 +59,7 @@ void Player::update(float deltaTime)
 	if (m_moveComponent->getVelocity().getMagnitude() > 0)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
+
 }
 
 void Player::draw()
@@ -72,6 +75,7 @@ void Player::onCollision(Actor* other)
 	{
 		//...player respawns.
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
+		this->getTransform()->setScale({ 50,50 });
 	}
 
 	//If player collides with the power up...
@@ -85,26 +89,79 @@ void Player::onCollision(Actor* other)
 		//create new collider with a smaller radius
 		CircleCollider* newCollider = new CircleCollider(1, this);
 		this->setCollider(newCollider);
+		m_moveComponent->setMaxSpeed(20);
 
-		//PowerUp* powerUpChild = new PowerUp(1, 1, "Power Up child");
-		//powerUpChild->getTransform()->setScale({ 50, 50 });
-		//this->getTransform()->addChild(powerUpChild);
+		
 	}
+	
 
 	if (other->getName() == "Power Up 2")
 	{
 		Engine::destroy(other);
 
-		Bullet* bullet = new Bullet(this, 1, 1, { 0,0 }, 1, "Bullet child");
+		Bullet* bullet = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
 		Engine::getCurrentScene()->addActor(bullet);
 		this->getTransform()->addChild(bullet->getTransform());
-		bullet->getTransform()->setScale({ 50, 50 });
-		
-		
-
+		bullet->getTransform()->setScale({ 50,50 });
+		bullet->getTransform()->setTranslation(1, 1);
 		CircleCollider* bulletChildCollder = new CircleCollider(bullet);
 		bullet->setCollider(bulletChildCollder);
 		
+		Bullet* bullet2 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet2);
+		this->getTransform()->addChild(bullet2->getTransform());
+		bullet2->getTransform()->setScale({ 50,50 });
+		bullet2->getTransform()->setTranslation(-1, -1);
+		CircleCollider* bullet2Collider = new CircleCollider(bullet2);
+		bullet2->setCollider(bullet2Collider);
+
+		Bullet* bullet3 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet3);
+		this->getTransform()->addChild(bullet3->getTransform());
+		bullet3->getTransform()->setScale({ 50,50 });
+		bullet3->getTransform()->setTranslation(1, -1);
+		CircleCollider* bullet3Collider = new CircleCollider(bullet3);
+		bullet3->setCollider(bullet3Collider);
+		
+		Bullet* bullet4 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet4);
+		this->getTransform()->addChild(bullet4->getTransform());
+		bullet4->getTransform()->setScale({ 50,50 });
+		bullet4->getTransform()->setTranslation(-1, 1);
+		CircleCollider* bullet4Collider = new CircleCollider(bullet4);
+		bullet4->setCollider(bullet4Collider);
+
+		Bullet* bullet5 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet5);
+		this->getTransform()->addChild(bullet5->getTransform());
+		bullet5->getTransform()->setScale({ 50,50 });
+		bullet5->getTransform()->setTranslation(0, 1);
+		CircleCollider* bullet5Collider = new CircleCollider(bullet5);
+		bullet5->setCollider(bullet5Collider);
+
+		Bullet* bullet6 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet6);
+		this->getTransform()->addChild(bullet6->getTransform());
+		bullet6->getTransform()->setScale({ 50,50 });
+		bullet6->getTransform()->setTranslation(1,0);
+		CircleCollider* bullet6Collider = new CircleCollider(bullet6);
+		bullet6->setCollider(bullet6Collider);
+
+		Bullet* bullet7 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet7);
+		this->getTransform()->addChild(bullet7->getTransform());
+		bullet7->getTransform()->setScale({ 50,50 });
+		bullet7->getTransform()->setTranslation(-1, 0);
+		CircleCollider* bullet7Collider = new CircleCollider(bullet7);
+		bullet7->setCollider(bullet7Collider);
+
+		Bullet* bullet8 = new Bullet(this, 1, 1, { 0, 0 }, 1, "Bullet child");
+		Engine::getCurrentScene()->addActor(bullet8);
+		this->getTransform()->addChild(bullet8->getTransform());
+		bullet8->getTransform()->setScale({ 50,50 });
+		bullet8->getTransform()->setTranslation(0, -1);
+		CircleCollider* bullet8Collider = new CircleCollider(bullet8);
+		bullet8->setCollider(bullet8Collider);
 	}
 }
 

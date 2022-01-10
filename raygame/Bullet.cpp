@@ -24,6 +24,9 @@ void Bullet::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
+	/*if (getName() == "Bullet child")
+		getTransform()->rotate(deltaTime);*/
+
 	//The amount of time that has passed since player has last shot a bullet + the delta time
 	m_timeSinceLastShot = m_timeSinceLastShot + deltaTime;
 
@@ -38,6 +41,8 @@ void Bullet::update(float deltaTime)
 		//set the time since the last shot back to 0
 		m_timeSinceLastShot = 0;
 	}
+
+	
 }
 
 void Bullet::draw()
@@ -54,10 +59,6 @@ void Bullet::onCollision(Actor* other)
 		//...The bullet is removed form the scene
 		Engine::destroy(this);
 	}
-
-	if (other->getName() == "Enemy")
-		Engine::destroy(other);
-
 
 }
 

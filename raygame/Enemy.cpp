@@ -37,7 +37,7 @@ void Enemy::draw()
 
 void Enemy::onCollision(Actor* other)
 {
-	if (other->getName() == "Bullet" || other->getName() == "Bullet dChild")
+	if (other->getName() == "Bullet" || other->getName() == "Bullet child")
 	{
 		Engine::destroy(this);
 	}

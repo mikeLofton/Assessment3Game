@@ -7,6 +7,7 @@
 #include "EnemySpawner.h"
 #include "CircleCollider.h"
 #include "PowerUp.h"
+#include "Bullet.h"
 
 void StartScene::start()
 {
@@ -24,6 +25,7 @@ void StartScene::start()
 
 	PowerUp* powerUp2 = new PowerUp(500, 700, "Power Up 2");
 	powerUp2->getTransform()->setScale({ 50, 50 });
+
 
 	/*Actor* test = new Actor(400, 500, "Test");*/
 

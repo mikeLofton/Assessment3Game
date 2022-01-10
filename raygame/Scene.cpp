@@ -80,6 +80,8 @@ void Scene::update(float deltaTime)
                 m_actors.getActor(i)->onCollision(m_actors.getActor(j));
         }
     }
+
+    
 }
 
 void Scene::updateUI(float deltaTime)

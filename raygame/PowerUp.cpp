@@ -20,6 +20,7 @@ void PowerUp::start()
 
 
 
+
 void PowerUp::draw()
 {
 	Actor::draw();

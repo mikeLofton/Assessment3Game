@@ -213,6 +213,11 @@ void Transform2D::rotate(float radians)
     m_shouldUpdateTransforms = true;
 }
 
+void Transform2D::setTranslation(float translationX, float translationY)
+{
+    *m_translation = MathLibrary::Matrix3::createTranslation(MathLibrary::Vector2(translationX, translationY));
+}
+
 void Transform2D::lookAt(MathLibrary::Vector2 position)
 {
     //Find the direction that the actor should look in
