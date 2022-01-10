@@ -34,9 +34,9 @@ void StartScene::start()
 
 	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", player);
 
-	addActor(powerUp2);
 	UIText* lifeText = new UIText(10, 950, "Life Text", RAYWHITE, 50, "Lives ");
 
+	addActor(powerUp2);
 	addActor(powerUp);
 	addActor(player);
 	addActor(spawner1);

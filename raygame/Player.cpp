@@ -86,6 +86,7 @@ void Player::onCollision(Actor* other)
 	{
 		//...player respawns.
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
+		this->getTransform()->setScale({ 50,50 });
 
 		if (lifeCount == 3)
 			m_playerLifeComponent->removeLife3();
@@ -97,7 +98,7 @@ void Player::onCollision(Actor* other)
 
 		lifeCount--;
 		
-		this->getTransform()->setScale({ 50,50 });
+		
 	}
 
 	//If player collides with the power up...
