@@ -5,11 +5,15 @@
 #include "Engine.h"
 #include "Transform2D.h"
 #include <iostream>
+#include "Player.h"
 
 void PowerUp::start()
 {
 	Actor::start();
-	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/bullet.png")));
+	//Power up sprite
+	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/Flameless.png")));
+
+	//The power ups sprite
 	CircleCollider* powerUpCircleCollider = new CircleCollider(10, this);
 	this->setCollider(powerUpCircleCollider);
 }
@@ -17,15 +21,6 @@ void PowerUp::start()
 void PowerUp::draw()
 {
 	Actor::draw();
+	//Draw Collider
 	getCollider()->draw();
-}
-
-void PowerUp::onCollision(Actor* other)
-{
-
-	if (other->getName() == "Player")
-	{
-		/*Engine::getCurrentScene()->removeActor(this);*/
-		delete m_spriteComponent;
-	}
 }

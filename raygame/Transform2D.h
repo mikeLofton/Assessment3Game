@@ -101,6 +101,8 @@ public:
     /// <param name="radians">The amount of radians to increase the rotation by</param>
     void rotate(float radians);
 
+    void setTranslation(float translationX, float translationY);
+
     /// <summary>
     /// Rotates the transform to face the given position
     /// </summary>
