@@ -9,7 +9,7 @@
 #include "CircleCollider.h"
 #include "PowerUp.h"
 #include <iostream>
-#include "GameManager.h"
+#include <raymath.h>
 
 void Player::start()
 {
@@ -61,6 +61,10 @@ void Player::update(float deltaTime)
 
 	if (lifeCount <= 0)
 		Engine::CloseApplication();
+
+	float posX = Clamp(getTransform()->getLocalPosition().x, 30, 680);
+	float posY = Clamp(getTransform()->getLocalPosition().y, 30, 930);
+	getTransform()->setLocalPosition(MathLibrary::Vector2(posX, posY));
 }
 
 void Player::draw()
@@ -74,7 +78,7 @@ void Player::onCollision(Actor* other)
 	if (other->getName() == "Enemy")
 	{
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
-		lifeCount--;
+			lifeCount--;
 	}
 
 	if (other->getName() == "Power Up")

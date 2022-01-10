@@ -22,7 +22,7 @@ void StartScene::start()
 
 	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", player);
 
-	UIText* lifeText = new UIText(500, 950, "Life Text", RAYWHITE, 50, "Lives");
+	UIText* lifeText = new UIText(500, 950, "Life Text", RAYWHITE, 50, "Lives ");
 	UIText* scoreText = new UIText(5, 950, "Score Text", RAYWHITE, 50, "Score");
 
 	addActor(powerUp);
