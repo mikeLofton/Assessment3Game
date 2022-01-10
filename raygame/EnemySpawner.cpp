@@ -3,6 +3,13 @@
 #include "Enemy.h"
 #include "Transform2D.h"
 #include "Player.h"
+#include "GameWin.h"
+
+void EnemySpawner::start()
+{
+	Actor::start();
+	m_gameWinComponent = dynamic_cast<GameWin*>(addComponent(new GameWin()));
+}
 
 void EnemySpawner::update(float deltaTime)
 {
@@ -17,4 +24,6 @@ void EnemySpawner::update(float deltaTime)
 		m_enemyTotal++;
 		m_timeSinceLastSpawn = 0;
 	}
+
+	
 }

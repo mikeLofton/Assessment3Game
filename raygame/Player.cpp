@@ -23,6 +23,7 @@ void Player::start()
 	m_moveComponent->setMaxSpeed(10);
 	//Add the sprite component for the player ship
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
+
 	m_playerLifeComponent = dynamic_cast<PlayerLife*>(addComponent(new PlayerLife()));
 	
 
