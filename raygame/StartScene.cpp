@@ -8,7 +8,6 @@
 #include "CircleCollider.h"
 #include "PowerUp.h"
 #include "UIText.h"
-#include "GameManager.h"
 
 void StartScene::start()
 {
@@ -25,9 +24,6 @@ void StartScene::start()
 
 	UIText* lifeText = new UIText(10, 950, "Life Text", RAYWHITE, 50, "Lives ");
 
-	GameManager* manager = new GameManager(4, 4, "Manager");
-
-	addActor(manager);
 	addActor(powerUp);
 	addActor(player);
 	addActor(spawner1);

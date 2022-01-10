@@ -3,6 +3,7 @@
 class InputComponent;
 class MovementComponent;
 class Sprite;
+class PlayerLife;
 
 class Player :
 	public Actor
@@ -30,10 +31,14 @@ public:
 	void draw() override;
 	void onCollision(Actor* other) override;
 
+	int getLifeCount() { return lifeCount; }
+
 private:
 	InputComponent* m_inputComponent;
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
+	PlayerLife* m_playerLifeComponent;
+
 	int lifeCount = 3;
 };
 

@@ -10,6 +10,7 @@
 #include "PowerUp.h"
 #include <iostream>
 #include <raymath.h>
+#include "PlayerLife.h"
 
 void Player::start()
 {
@@ -22,6 +23,7 @@ void Player::start()
 	m_moveComponent->setMaxSpeed(10);
 	//Add the sprite component for the player ship
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
+	m_playerLifeComponent = dynamic_cast<PlayerLife*>(addComponent(new PlayerLife()));
 	
 
 	//Set spawn point
@@ -59,8 +61,9 @@ void Player::update(float deltaTime)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 
-	if (lifeCount <= 0)
-		Engine::CloseApplication();
+	/*if (lifeCount <= 0)
+		Engine::CloseApplication();*/
+
 
 	//Sets the player's boundaries on the screen
 	float posX = Clamp(getTransform()->getLocalPosition().x, 30, 680);
@@ -79,7 +82,17 @@ void Player::onCollision(Actor* other)
 	if (other->getName() == "Enemy")
 	{
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
-			lifeCount--;
+
+		if (lifeCount == 3)
+			m_playerLifeComponent->removeLife3();
+		else if (lifeCount == 2)
+			m_playerLifeComponent->removeLife2();
+		else if (lifeCount == 1)
+			m_playerLifeComponent->removeLife1();
+
+
+		lifeCount--;
+		
 	}
 
 	if (other->getName() == "Power Up")
