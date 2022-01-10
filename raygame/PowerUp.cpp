@@ -11,23 +11,16 @@ void PowerUp::start()
 {
 	Actor::start();
 	//Power up sprite
-	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/bullet.png")));
+	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/Flameless.png")));
 
 	//The power ups sprite
 	CircleCollider* powerUpCircleCollider = new CircleCollider(10, this);
 	this->setCollider(powerUpCircleCollider);
 }
 
-
-
-
 void PowerUp::draw()
 {
 	Actor::draw();
+	//Draw Collider
 	getCollider()->draw();
-}
-
-void PowerUp::onCollision(Actor* other)
-{
-	
 }

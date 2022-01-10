@@ -45,10 +45,5 @@ private:
 	InputComponent* m_inputComponent;
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
-
-	//The amount of time that has passed since player has shot a bullet
-	float m_timeSincePowerUp = 1;
-	//The amount of time that it takes for a bullet to despawn
-	float m_coolDown = 10;
 };
 

@@ -27,11 +27,6 @@ public:
 	/// </summary>
 	void draw() override;
 
-	/// <summary>
-	/// When player collides with power up the sprite is deleted.
-	/// </summary>
-	/// <param name="other">actor the collision accured with</param>
-	void onCollision(Actor* other);
 
 private:
 	MovementComponet* m_movementComponent;
