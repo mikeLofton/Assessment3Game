@@ -26,7 +26,7 @@ void Player::start()
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
 	//Add the playerLife component to the player
 	m_playerLifeComponent = dynamic_cast<PlayerLife*>(addComponent(new PlayerLife()));
-
+	//Initializes lose text
 	loseText = new UIText(getTransform()->getWorldPosition().x, getTransform()->getWorldPosition().y, "Lose Text", RAYWHITE, 50, "You Lose");
 }
 
