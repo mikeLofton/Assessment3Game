@@ -4,6 +4,7 @@
 #include "Transform2D.h"
 #include "CircleCollider.h"
 #include "Engine.h"
+#include "GameManager.h"
 
 void Enemy::start()
 {
@@ -51,5 +52,6 @@ void Enemy::onCollision(Actor* other)
 	{
 		//Destroy enemy
 		Engine::destroy(this);
+		GameManager::enemyCount--;
 	}
 }

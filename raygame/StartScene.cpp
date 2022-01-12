@@ -7,6 +7,7 @@
 #include "EnemySpawner.h"
 #include "CircleCollider.h"
 #include "PowerUp.h"
+#include "GameManager.h"
 
 void StartScene::start()
 {
@@ -29,11 +30,14 @@ void StartScene::start()
 	EnemySpawner* spawner1 = new EnemySpawner(55, 0, "Spawner1", player);
 	EnemySpawner* spawner2 = new EnemySpawner(600, 1000, "Spawner2", player);
 
+	GameManager* manager = new GameManager(70, 70, "Manager");
+
 	addActor(powerUp2);
 	addActor(powerUp);
 	addActor(player);
 	addActor(spawner1);
 	addActor(spawner2);
+	addActor(manager);
 	
 
 }
