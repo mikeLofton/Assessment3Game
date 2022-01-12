@@ -4,6 +4,7 @@ class InputComponent;
 class MovementComponent;
 class Sprite;
 class PlayerLife;
+class UIText;
 
 class Player :
 	public Actor
@@ -49,6 +50,7 @@ private:
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
 	PlayerLife* m_playerLifeComponent;
+	UIText* loseText;
 
 	int lifeCount = 3;
 };
