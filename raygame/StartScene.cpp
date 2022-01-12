@@ -32,7 +32,8 @@ void StartScene::start()
 	/*Enemy* enemy = new Enemy(55, 50, "Enemy", player);
 	enemy->getTransform()->setScale({ 50, 50 });*/
 
-	EnemySpawner* spawner1 = new EnemySpawner(100, 5, "Spawner1", player);
+	EnemySpawner* spawner1 = new EnemySpawner(55, 50, "Spawner1", player);
+	EnemySpawner* spawner2 = new EnemySpawner(600, 900, "Spawner2", player);
 
 	UIText* lifeText = new UIText(10, 950, "Life Text", RAYWHITE, 50, "Lives ");
 
@@ -40,6 +41,7 @@ void StartScene::start()
 	addActor(powerUp);
 	addActor(player);
 	addActor(spawner1);
+	addActor(spawner2);
 	addUIElement(lifeText);
 
 }

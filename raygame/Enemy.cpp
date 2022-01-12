@@ -28,7 +28,7 @@ void Enemy::update(float deltaTime)
 	MathLibrary::Vector2 direction;
 	direction = m_target->getTransform()->getWorldPosition() - getTransform()->getWorldPosition();
 	direction.normalize();
-	m_moveComponent->setVelocity(direction * 100);
+	m_moveComponent->setVelocity(direction * 200);
 	this->getTransform()->lookAt(m_target->getTransform()->getWorldPosition());
 }
 

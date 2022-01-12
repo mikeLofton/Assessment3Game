@@ -156,7 +156,6 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="GameWin.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Lives.cpp" />
     <ClCompile Include="main.cpp" />
@@ -181,7 +180,6 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Engine.h" />
-    <ClInclude Include="GameWin.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Lives.h" />
     <ClInclude Include="MovementComponent.h" />
