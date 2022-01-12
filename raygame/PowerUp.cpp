@@ -22,5 +22,5 @@ void PowerUp::draw()
 {
 	Actor::draw();
 	//Draw Collider
-	getCollider()->draw();
+	//getCollider()->draw();
 }

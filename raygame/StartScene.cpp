@@ -20,10 +20,10 @@ void StartScene::start()
 	playerCircleCollider->setCollisionRadius(20);
 
 	//Power up
-	PowerUp* powerUp = new PowerUp(500, 500, "Power Up");
+	PowerUp* powerUp = new PowerUp(100, 100, "Power Up");
 	powerUp->getTransform()->setScale({ 50, 50 });
 
-	PowerUp* powerUp2 = new PowerUp(500, 700, "Power Up 2");
+	PowerUp* powerUp2 = new PowerUp(600, 900, "Power Up 2");
 	powerUp2->getTransform()->setScale({ 50, 50 });
 
 
