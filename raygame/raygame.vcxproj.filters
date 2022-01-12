@@ -80,7 +80,7 @@
     <ClCompile Include="PlayerLife.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Points.cpp">
+    <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -157,7 +157,7 @@
     <ClInclude Include="PlayerLife.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Points.h">
+    <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
