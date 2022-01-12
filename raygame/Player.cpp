@@ -60,7 +60,7 @@ void Player::update(float deltaTime)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 
-	//If player life count hits zero close the game
+	//If player life count hits zero remove them from the scene
 	if (lifeCount <= 0)
 	{
 		Engine::getCurrentScene()->addUIElement(loseText);

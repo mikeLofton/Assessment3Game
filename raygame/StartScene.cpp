@@ -7,14 +7,13 @@
 #include "EnemySpawner.h"
 #include "CircleCollider.h"
 #include "PowerUp.h"
-#include "UIText.h"
 
 void StartScene::start()
 {
 	//Player
 	Player* player = new Player(50, 500, "Player");
 	player->getTransform()->setScale({ 50, 50 });
-	//Player colliderddd
+	//Player collider
 	CircleCollider* playerCircleCollider = new CircleCollider(player);
 	player->setCollider(playerCircleCollider);
 	playerCircleCollider->setCollisionRadius(20);
@@ -30,14 +29,11 @@ void StartScene::start()
 	EnemySpawner* spawner1 = new EnemySpawner(55, 0, "Spawner1", player);
 	EnemySpawner* spawner2 = new EnemySpawner(600, 1000, "Spawner2", player);
 
-	//Life UI text
-	UIText* lifeText = new UIText(10, 950, "Life Text", RAYWHITE, 50, "Lives ");
-
 	addActor(powerUp2);
 	addActor(powerUp);
 	addActor(player);
 	addActor(spawner1);
 	addActor(spawner2);
-	addUIElement(lifeText);
+	
 
 }
