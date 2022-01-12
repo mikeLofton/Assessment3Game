@@ -11,6 +11,7 @@
 #include <iostream>
 #include <raymath.h>
 #include "PlayerLife.h"
+#include "UIText.h"
 
 void Player::start()
 {
@@ -25,6 +26,8 @@ void Player::start()
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
 	//Add the playerLife component to the player
 	m_playerLifeComponent = dynamic_cast<PlayerLife*>(addComponent(new PlayerLife()));
+
+	loseText = new UIText(getTransform()->getWorldPosition().x, getTransform()->getWorldPosition().y, "Lose Text", RAYWHITE, 50, "You Lose");
 }
 
 void Player::update(float deltaTime)
@@ -59,7 +62,10 @@ void Player::update(float deltaTime)
 
 	//If player life count hits zero close the game
 	if (lifeCount <= 0)
-		Engine::CloseApplication();
+	{
+		Engine::getCurrentScene()->addUIElement(loseText);
+		Engine::getCurrentScene()->removeActor(this);
+	}
 
 
 	//Sets the player's boundaries on the screen
