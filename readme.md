@@ -1,5 +1,5 @@
 # Intro to C++
-This is a 2D space shooter programmed in C++ using Visual Studios. The player's goal is to shoot down all 
+This is a 2D space shooter programmed in C++ using Visual Studio. The player's goal is to shoot down all 
 enemy ships before they run into you. Power ups can be picked up to help defeate enemy ships.
 
 ## How to get the game
@@ -18,5 +18,7 @@ Again the player's goal is to destroy all enemy ships before the enemy ship runs
 | S | Move Down |
 | D | Move Right |
 | Space | Shoot |
+| ESC | To Close Game |
 
 ### Bugs
+You can get trapped in your spawn point by the enemies.
