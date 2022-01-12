@@ -23,13 +23,8 @@ void Player::start()
 	m_moveComponent->setMaxSpeed(10);
 	//Add the sprite component for the player ship
 	m_spriteComponent = dynamic_cast<Sprite*>(addComponent(new Sprite("Images/player.png")));
-
+	//Add the playerLife component to the player
 	m_playerLifeComponent = dynamic_cast<PlayerLife*>(addComponent(new PlayerLife()));
-	
-
-	//Set spawn point
-	//Set move speed
-	//Set position clamps
 }
 
 void Player::update(float deltaTime)
@@ -62,6 +57,7 @@ void Player::update(float deltaTime)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 
+	//If player life count hits zero close the game
 	if (lifeCount <= 0)
 		Engine::CloseApplication();
 
@@ -88,6 +84,7 @@ void Player::onCollision(Actor* other)
 		this->getTransform()->setLocalPosition(MathLibrary::Vector2(50, 500));
 		this->getTransform()->setScale({ 50,50 });
 
+		//If player colldes with an enemy remove the life equal to it's corresponding life number
 		if (lifeCount == 3)
 			m_playerLifeComponent->removeLife3();
 		else if (lifeCount == 2)
@@ -95,7 +92,7 @@ void Player::onCollision(Actor* other)
 		else if (lifeCount == 1)
 			m_playerLifeComponent->removeLife1();
 
-
+		//Decrement the life count
 		lifeCount--;
 		
 		
