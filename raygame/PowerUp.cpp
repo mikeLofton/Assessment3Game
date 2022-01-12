@@ -33,17 +33,17 @@ void PowerUp::update(float deltaTime)
 	
 	m_movementComponent->setVelocity({ 30,0 });
 	
-	if (range < 60 || range > 10)
+	if (range < 20 || range > 10)
 	{
 		m_movementComponent->setVelocity({ 0, 30 });
 		
 	}
-	if (range > 50 || range < 30)
+	if (range > 40 || range < 30)
 	{
 		m_movementComponent->setVelocity({ 30,0 });
 		
 	}
-	if (range > 70 || range < 40)
+	if (range > 70 || range < 50)
 	{
 		m_movementComponent->setVelocity({ -30, 0 });
 	}
