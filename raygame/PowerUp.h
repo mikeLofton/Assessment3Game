@@ -1,6 +1,6 @@
 #pragma once
 #include "Actor.h"
-class MovementComponet;
+class MovementComponent;
 class Sprite;
 
 class PowerUp :
@@ -21,6 +21,7 @@ public:
 	/// </summary>
 	void start() override;
 
+	void update(float deltaTime) override;
 
 	/// <summary>
 	/// Calls the base draw function and draws the collider attached to the power up 
@@ -29,7 +30,7 @@ public:
 
 
 private:
-	MovementComponet* m_movementComponent;
+	MovementComponent* m_movementComponent;
 	Sprite* m_spriteComponent;
 };
 

@@ -163,6 +163,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerLife.cpp" />
     <ClCompile Include="PowerUp.cpp" />
+    <ClCompile Include="PowerUpSpawner.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StartScene.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerLife.h" />
     <ClInclude Include="PowerUp.h" />
+    <ClInclude Include="PowerUpSpawner.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StartScene.h" />
