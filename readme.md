@@ -3,7 +3,7 @@ This is a 2D space shooter programmed in C++ using Visual Studio. The player's g
 enemy ships before they run into you. Power ups can be picked up to help defeate enemy ships.
 
 ## How to get the game
-- Download the lastes version
+- Download the lastest version
 - Unzip the file
 - Double click raygame.exc to play
 
