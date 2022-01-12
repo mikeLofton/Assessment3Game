@@ -62,8 +62,8 @@ void Player::update(float deltaTime)
 		//...set the players forward to the normalized velocity
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 
-	/*if (lifeCount <= 0)
-		Engine::CloseApplication();*/
+	if (lifeCount <= 0)
+		Engine::CloseApplication();
 
 
 	//Sets the player's boundaries on the screen
