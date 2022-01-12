@@ -32,7 +32,7 @@ void StartScene::start()
 	EnemySpawner* spawner2 = new EnemySpawner(600, 1000, "Spawner2", player);
 
 	PowerUpSpawner* powerUpSpawner1 = new PowerUpSpawner(500, 500, "Power Up", 20);
-	PowerUpSpawner* powerUpSpawner2 = new PowerUpSpawner(500, 200, "Power Up 2", 10);
+	PowerUpSpawner* powerUpSpawner2 = new PowerUpSpawner(500, 200, "Power Up 2", 2);
 
 	//Life UI text
 	UIText* lifeText = new UIText(10, 950, "Life Text", RAYWHITE, 50, "Lives ");

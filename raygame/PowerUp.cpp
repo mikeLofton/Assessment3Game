@@ -8,6 +8,8 @@
 #include "Player.h"
 #include "MovementComponent.h"
 #include "raymath.h"
+#include <cstdlib>
+#include <time.h>
 
 void PowerUp::start()
 {
@@ -26,13 +28,40 @@ void PowerUp::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
-	/*MathLibrary::Vector2 direction;
-	direction = getTransform()->getWorldPosition();
-	direction.normalize();
-	m_movementComponent->setVelocity(direction * 50);*/
+	srand(time(NULL));
+	float range = rand() % 100 + 1;
 	
+	m_movementComponent->setVelocity({ 30,0 });
 	
+	if (range < 60 || range > 10)
+	{
+		m_movementComponent->setVelocity({ 0, 30 });
+		
+	}
+	if (range > 50 || range < 30)
+	{
+		m_movementComponent->setVelocity({ 30,0 });
+		
+	}
+	if (range > 70 || range < 40)
+	{
+		m_movementComponent->setVelocity({ -30, 0 });
+	}
+	if (range < 80 || range > 90)
+	{
+		m_movementComponent->setVelocity({ 0, -30 });
+	}
+	else
+	{
+		srand(1);
+	}
 
+	float posX = Clamp(getTransform()->getLocalPosition().x, 30, 680);
+	float posY = Clamp(getTransform()->getLocalPosition().y, 30, 930);
+	getTransform()->setLocalPosition(MathLibrary::Vector2(posX, posY));
+
+	if (getTransform()->getWorldPosition().x >= 679)
+		m_movementComponent->setVelocity({ -30, 0 });
 }
 
 void PowerUp::draw()
