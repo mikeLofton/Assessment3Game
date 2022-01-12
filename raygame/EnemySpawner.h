@@ -17,7 +17,7 @@ public:
 private:
 	int m_enemyTotal = 0;
 	float m_timeSinceLastSpawn;
-	float m_spawnCooldown = 1;
+	float m_spawnCooldown = 2;
 	Actor* m_enemy;
 	Player* m_currentPlayer;
 	GameWin* m_gameWinComponent;
