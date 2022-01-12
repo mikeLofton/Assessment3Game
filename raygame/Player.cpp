@@ -76,7 +76,7 @@ void Player::draw()
 {
 	Actor::draw();
 	//Draw Collider
-	getCollider()->draw();
+	//getCollider()->draw();
 }
 
 void Player::onCollision(Actor* other)

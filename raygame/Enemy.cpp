@@ -37,7 +37,7 @@ void Enemy::update(float deltaTime)
 void Enemy::draw()
 {
 	Actor::draw();
-	getCollider()->draw();
+	//getCollider()->draw();
 }
 
 void Enemy::onCollision(Actor* other)
