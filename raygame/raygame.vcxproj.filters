@@ -80,9 +80,6 @@
     <ClCompile Include="PlayerLife.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="GameWin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -156,9 +153,6 @@
     </ClInclude>
     <ClInclude Include="PlayerLife.h">
       <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="GameWin.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
