@@ -19,4 +19,4 @@ Again the player's goal is to destroy all enemy ships before the enemy ship runs
 | D | Move Right |
 | Space | Shoot |
 
-#### Bugs
+### Bugs
