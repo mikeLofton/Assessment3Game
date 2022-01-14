@@ -50,8 +50,8 @@ private:
 	MovementComponent* m_moveComponent;
 	Sprite* m_spriteComponent;
 	PlayerLife* m_playerLifeComponent;
-	UIText* loseText;
+	/*UIText* loseText;
 
-	int lifeCount = 3;
+	int lifeCount = 3;*/
 };
 

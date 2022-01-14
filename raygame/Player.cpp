@@ -12,6 +12,7 @@
 #include <raymath.h>
 #include "PlayerLife.h"
 #include "UIText.h"
+#include "GameManager.h"
 
 void Player::start()
 {
@@ -27,7 +28,7 @@ void Player::start()
 	//Add the playerLife component to the player
 	m_playerLifeComponent = dynamic_cast<PlayerLife*>(addComponent(new PlayerLife()));
 	//Initializes lose text
-	loseText = new UIText(getTransform()->getWorldPosition().x, getTransform()->getWorldPosition().y, "Lose Text", RAYWHITE, 50, "You Lose");
+	/*loseText = new UIText(getTransform()->getWorldPosition().x, getTransform()->getWorldPosition().y, "Lose Text", RAYWHITE, 50, "You Lose");*/
 }
 
 void Player::update(float deltaTime)
@@ -61,9 +62,8 @@ void Player::update(float deltaTime)
 		this->getTransform()->setForward(m_moveComponent->getVelocity().getNormalized());
 
 	//If player life count hits zero remove them from the scene
-	if (lifeCount <= 0)
+	if (GameManager::lifeCount <= 0)
 	{
-		Engine::getCurrentScene()->addUIElement(loseText);
 		Engine::getCurrentScene()->removeActor(this);
 	}
 
@@ -91,7 +91,7 @@ void Player::onCollision(Actor* other)
 		this->getTransform()->setScale({ 50,50 });
 
 		//If player colldes with an enemy remove the life equal to it's corresponding life number
-		if (lifeCount == 3)
+		if (GameManager::lifeCount == 3)
 			m_playerLifeComponent->removeLife3();
 		else if (lifeCount == 2)
 			m_playerLifeComponent->removeLife2();

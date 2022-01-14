@@ -16,4 +16,7 @@ void GameManager::update(float deltaTime)
 {
 	if (enemyCount <= 0)
 		Engine::getCurrentScene()->addUIElement(m_winText);
+
+	if (lifeCount <= 0)
+		Engine::getCurrentScene()->addUIElement(m_loseText);
 }
