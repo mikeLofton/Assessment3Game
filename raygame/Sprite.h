@@ -22,7 +22,7 @@ public:
 	int getHeight() { return m_height; }
 
 	/// <summary>
-	/// Fates the sprite width
+	/// Gets the sprite width
 	/// </summary>
 	int getWidth() { return m_width; }
 
