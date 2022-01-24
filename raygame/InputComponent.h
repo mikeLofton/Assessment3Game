@@ -19,6 +19,11 @@ public:
 	/// </summary>
 	/// <returns>The x and y direction the player is moving</returns>
 	MathLibrary::Vector2 getMoveAxis();
+
+	/// <summary>
+	/// Checks to see if player pressed spacebar
+	/// </summary>
+	/// <returns>True if spacebar was pressed</returns>
 	bool checkActionKey();
 	
 
