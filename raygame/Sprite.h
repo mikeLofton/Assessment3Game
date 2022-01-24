@@ -16,7 +16,14 @@ public:
 
 	~Sprite() override;
 
+	/// <summary>
+	/// Gets the sprite height
+	/// </summary>
 	int getHeight() { return m_height; }
+
+	/// <summary>
+	/// Fates the sprite width
+	/// </summary>
 	int getWidth() { return m_width; }
 
 	void draw() override;
